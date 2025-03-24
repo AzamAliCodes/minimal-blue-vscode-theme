@@ -6,18 +6,19 @@ Minimal BLue is a dark, minimalist theme for Visual Studio Code, designed to pro
 
 ## 🚀 Installation
 
+### **Method 1: Install via VS Code**
 1. Open the Extensions view in VS Code (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS).
 2. Search for `Minimal BLue`.
 3. Click **Install**.
 4. Set the theme:
    - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
-   - Run `Preferences: Color Theme` and select `Minimal BLue`.
+   - Run `Preferences: Color Theme` and select **Minimal BLue**.
 
-Alternatively, install manually:
-
-- Download the `.vsix` file from the repository.
-- Run `code --install-extension minimal-blue-0.0.1.vsix` in your terminal.
-- Reload VS Code.
+### **Method 2: Manual Installation**
+1. Download the `.vsix` file from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+2. Open VS Code and run the following command in the terminal:
+   - Run `code --install-extension minimal-blue-0.0.1.vsix` in your terminal.
+   - Restart VS Code if necessary.
 
 ---
 
@@ -92,11 +93,16 @@ The extension applies the following settings on first activation (if not already
 
 ## 🌐 GitHub Repository
 
-Check out the project on GitHub: [AzamAliCodes](https://github.com/AzamAliCodes)
+- 📌 GitHub Repository: [AzamAliCodes/minimal-blue-vscode-theme](https://github.com/AzamAliCodes/minimal-blue-vscode-theme)
+- 📌 Check out other project on GitHub: [AzamAliCodes](https://github.com/AzamAliCodes)
 
-## 🌐 Marketplace Link
+## ⓘ Extention Link (VS Code Marketplace)
 
-- **VS Code Marketplace**: [Minimal BLue Theme (Releasing Soon)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.minimal-blue)
+**╰┈➤[Minimal BLue Theme (Releasing Soon)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.minimal-blue)**
+
+## 🔗 Download (.vsix)
+
+- 📦 [Download the latest release (.vsix)](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest)
 
 ---
 
