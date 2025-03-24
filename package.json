@@ -3,6 +3,10 @@
   "displayName": "Minimal BLue",
   "description": "Minimal BLue Theme with recommended extensions, settings, and a custom welcome page!",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AzamAliCodes/minimal-blue-vscode-theme.git"
+  },
   "engines": {
     "vscode": "^1.98.0"
   },
@@ -42,7 +46,7 @@
   ],
   "main": "./extension.js",
   "scripts": {
-    "vscode:prepublish": "npm run package",
+    "vscode:prepublish": "echo 'Prepublish step completed'",
     "package": "vsce package"
   },
   "dependencies": {},
