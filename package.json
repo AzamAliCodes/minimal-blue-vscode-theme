@@ -1,0 +1,54 @@
+{
+  "name": "minimal-blue",
+  "displayName": "Minimal BLue",
+  "description": "Minimal BLue Theme with recommended extensions, settings, and a custom welcome page!",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "license": "MIT",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Minimal BLue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Minimal BLue-color-theme.json"
+      }
+    ],
+    "viewsWelcome": [
+      {
+        "view": "explorer",
+        "contents": "Welcome to Minimal BLue\n[Explore the Cosmic Welcome Page](command:minimalBlue.showWelcome)"
+      }
+    ],
+    "commands": [
+      {
+        "command": "minimalBlue.showWelcome",
+        "title": "Minimal BLue: Show Welcome Page"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:minimalBlue.showWelcome",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:html",
+    "workspaceContains:**/*",
+    "onView:welcome"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "package": "vsce package"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "extensionRecommendations": [
+    "PKief.material-icon-theme",
+    "esbenp.prettier-vscode"
+  ]
+}
