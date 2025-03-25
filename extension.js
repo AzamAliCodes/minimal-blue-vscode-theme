@@ -8,7 +8,7 @@ const path = require("path");
 function activate(context) {
   console.log("Minimal Blue extension is now active!");
 
-  // Apply recommended settings if they haven't been customized
+  // Apply recommended settings, overwriting any existing user settings
   const config = vscode.workspace.getConfiguration();
   const recommendedSettings = {
     // Theme and Appearance
@@ -54,6 +54,7 @@ function activate(context) {
     "explorer.decorations.badges": false, // Hides badges (e.g., git status) in the Explorer
     "files.trimTrailingWhitespace": true, // Automatically trims trailing whitespace in files on save
     "files.trimFinalNewlines": true, // Ensures files end with a single newline on save
+    "workbench.list.openMode": "singleClick", // Ensure single-click opens files in the Explorer
 
     // Workbench Tree (File Explorer) Settings
     "workbench.tree.enableStickyScroll": false, // Disables sticky scroll in the File Explorer tree
@@ -83,18 +84,14 @@ function activate(context) {
     "terminal.integrated.fontSize": 16, // Set the font size in the integrated terminal
   };
 
-  // Apply the recommended settings if they haven't been customized by the user
+  // Apply the recommended settings, overwriting any existing user settings
   for (const [key, value] of Object.entries(recommendedSettings)) {
-    const currentValue = config.inspect(key);
-    if (!currentValue.globalValue && !currentValue.workspaceValue) {
-      config.update(key, value, vscode.ConfigurationTarget.Global);
-      console.log(`Applied setting: ${key} = ${JSON.stringify(value)}`);
-    }
+    config.update(key, value, vscode.ConfigurationTarget.Global);
+    console.log(`Force-applied setting: ${key} = ${JSON.stringify(value)}`);
   }
 
   // Variable to hold the webview panel
   let welcomePanel = null;
-  let hasOpenedOtherEditors = false;
   let wasClosedByUser = false;
   let isSidebarHidden = false; // Track whether we hid the sidebar
 
@@ -173,11 +170,6 @@ function activate(context) {
           );
           isSidebarHidden = false;
         }
-        // Only reopen if no editors are open and the user hasn't manually closed it
-        if (vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
-          console.log("No editors open, reopening welcome page.");
-          showWelcomePage(true);
-        }
       },
       null,
       context.subscriptions
@@ -207,10 +199,14 @@ function activate(context) {
       );
 
       if (hasNonWelcomeEditors) {
-        hasOpenedOtherEditors = true;
         console.log(
-          "Non-welcome editors detected, setting hasOpenedOtherEditors to true."
+          "Non-welcome editors detected, closing welcome page if open."
         );
+        // Close the welcome page if a file is opened
+        if (welcomePanel) {
+          welcomePanel.dispose();
+          welcomePanel = null;
+        }
         // Restore the sidebar if it was hidden
         if (isSidebarHidden) {
           console.log(
@@ -247,26 +243,48 @@ function activate(context) {
     );
     setTimeout(() => {
       // Close any existing editors (like the splash screen or welcome page)
+      console.log("Closing all editors to ensure welcome page displays.");
       vscode.commands
         .executeCommand("workbench.action.closeAllEditors")
         .then(() => {
-          if (!hasOpenedOtherEditors) {
-            console.log("No other editors opened yet, showing welcome page.");
+          // Explicitly close the default welcome page
+          console.log("Closing default welcome page if open.");
+          vscode.commands.executeCommand("workbench.action.closeActiveEditor");
+          if (
+            vscode.window.visibleTextEditors.length === 0 &&
+            !wasClosedByUser
+          ) {
+            console.log("No editors open, showing welcome page.");
             showWelcomePage(true);
-          } else {
-            console.log(
-              "Other editors already opened, ensuring welcome page is open if no editors are open."
-            );
-            if (
-              vscode.window.visibleTextEditors.length === 0 &&
-              !wasClosedByUser
-            ) {
-              showWelcomePage(true);
-            }
           }
         });
     }, 100); // Delay to ensure VS Code is fully initialized
   }
+
+  // Monitor theme changes to show/hide the welcome page
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration((event) => {
+      if (event.affectsConfiguration("workbench.colorTheme")) {
+        const currentTheme = config.get("workbench.colorTheme");
+        console.log(`Theme changed to: ${currentTheme}`);
+        if (currentTheme !== "Minimal Blue" && welcomePanel) {
+          console.log(
+            "Theme changed to non-Minimal Blue, closing welcome page."
+          );
+          welcomePanel.dispose();
+          welcomePanel = null;
+        } else if (
+          currentTheme === "Minimal Blue" &&
+          vscode.window.visibleTextEditors.length === 0 &&
+          !wasClosedByUser &&
+          hasRunBefore
+        ) {
+          console.log("Theme changed to Minimal Blue, showing welcome page.");
+          showWelcomePage(true);
+        }
+      }
+    })
+  );
 }
 
 function getWebviewContent(svgContent) {
@@ -306,6 +324,11 @@ function getWebviewContent(svgContent) {
 
 function deactivate() {
   console.log("Minimal Blue extension is now deactivated.");
+  // Clean up the welcome panel if it exists
+  if (welcomePanel) {
+    welcomePanel.dispose();
+    welcomePanel = null;
+  }
 }
 
 module.exports = {
