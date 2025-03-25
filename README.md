@@ -6,19 +6,35 @@ Minimal BLue is a dark, minimalist theme for Visual Studio Code, designed to pro
 
 ## 🚀 Installation
 
-### **Method 1: Install via VS Code**
-1. Open the Extensions view in VS Code (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS).
-2. Search for `Minimal BLue`.
-3. Click **Install**.
-4. Set the theme:
-   - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
-   - Run `Preferences: Color Theme` and select **Minimal BLue**.
+### **Method 1: Install via VS Code Extensions**
+1. Open VS Code.
+2. Go to the **Extensions** view:
+   - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
+3. Search for `Minimal BLue` in the search bar.
+4. Click **Install**.
+5. Set the theme:
+   - Open the **Command Palette**:
+     - Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS).
+   - Type and select `Preferences: Color Theme`.
+   - Choose **Minimal BLue** from the list.
 
-### **Method 2: Manual Installation**
+### **Method 2: Manual Installation via VSIX**
+#### **Option 1: Using VS Code UI**
+1. Open VS Code.
+2. Go to the **Extensions** view:
+   - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
+3. Click the **`...` (menu button)** in the top-right corner of the Extensions view.
+4. Select **Install from VSIX...**.
+5. Locate and select the `minimal-blue-0.0.1.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+6. Restart VS Code if necessary.
+
+#### **Option 2: Using the Terminal**
 1. Download the `.vsix` file from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
-2. Open VS Code and run the following command in the terminal:
-   - Run `code --install-extension minimal-blue-0.0.1.vsix` in your terminal.
-   - Restart VS Code if necessary.
+2. Open your terminal.
+3. Run the following command:
+   ```sh
+   code --install-extension minimal-blue-0.0.1.vsix
+4. Restart VS Code if necessary.
 
 ---
 
