@@ -1,25 +1,28 @@
-# Minimal BLue 🌌 (Theme + UI)
+# Minimal Blue 🌌 (Theme + UI)
 
-Minimal BLue is a dark, minimalist theme for Visual Studio Code, designed to provide a **minimal, distraction-free UI** 🔧 as its core USP, with a sleek aesthetic. This theme removes unnecessary UI elements, applies curated settings for a **minimal UI** 🔧, and features a clean line highlight to keep you focused on your code. It also includes a custom welcome page for a personalized touch. ✨
+Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to provide a **minimal, distraction-free UI** 🔧 as its core USP, with a sleek aesthetic. This theme removes unnecessary UI elements, applies curated settings for a **minimal UI** 🔧, and features a clean line highlight to keep you focused on your code. It also includes a custom welcome page for a personalized touch. ✨
 
 ---
 
 ## 🚀 Installation
 
 ### **Method 1: Install via VS Code Extensions**
+
 1. Open VS Code.
 2. Go to the **Extensions** view:
    - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
-3. Search for `Minimal BLue` in the search bar.
+3. Search for `Minimal Blue` in the search bar.
 4. Click **Install**.
 5. Set the theme:
    - Open the **Command Palette**:
      - Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS).
    - Type and select `Preferences: Color Theme`.
-   - Choose **Minimal BLue** from the list.
+   - Choose **Minimal Blue** from the list.
 
 ### **Method 2: Manual Installation via VSIX**
+
 #### **Option 1: Using VS Code UI**
+
 1. Open VS Code.
 2. Go to the **Extensions** view:
    - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
@@ -29,18 +32,20 @@ Minimal BLue is a dark, minimalist theme for Visual Studio Code, designed to pro
 6. Restart VS Code if necessary.
 
 #### **Option 2: Using the Terminal**
+
 1. Download the `.vsix` file from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
 2. Open your terminal.
 3. Run the following command:
    ```sh
    code --install-extension minimal-blue-0.0.1.vsix
+   ```
 4. Restart VS Code if necessary.
 
 ---
 
 ## 🌟 Features
 
-- 🖥️ **Minimal, Distraction-Free UI** 🔧: The core USP of Minimal BLue—hides unnecessary UI elements like the Activity Bar, Status Bar, and breadcrumbs for a clean, focused coding environment.
+- 🖥️ **Minimal, Distraction-Free UI** 🔧: The core USP of Minimal Blue—hides unnecessary UI elements like the Activity Bar, Status Bar, and breadcrumbs for a clean, focused coding environment.
 - ✨ **Clean Line Highlight**: Features a highlight on the current line to keep your focus on the active code.
 - 🎨 **Dark Minimal Theme**: A beautiful dark theme with a minimalist color palette.
 - 📄 **Custom Welcome Page**: Displays a welcome page (using `vshome.svg`) when no editors are open, enhancing the **minimal UI** 🔧 experience.
@@ -53,10 +58,10 @@ Minimal BLue is a dark, minimalist theme for Visual Studio Code, designed to pro
 
 ### 📜 Custom Welcome Page
 
-- The welcome page appears automatically when no editors are open and the "Minimal BLue" theme is active, complementing the **minimal UI** 🔧 design.
+- The welcome page appears automatically when no editors are open and the "Minimal Blue" theme is active, complementing the **minimal UI** 🔧 design.
 - To show it manually:
   - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
-  - Run `Minimal BLue: Show Welcome Page`.
+  - Run `Minimal Blue: Show Welcome Page`.
 
 ### ⚙️ Recommended Settings
 
@@ -64,15 +69,17 @@ The extension applies the following settings on first activation (if not already
 
 #### 🎨 Theme and Appearance
 
-- Sets the theme to "Minimal BLue".
+- Sets the theme to "Minimal Blue".
 - Uses Material Icon Theme for icons.
 
 #### 🖼️ Workbench Layout
 
 - Hides the Activity Bar and Status Bar to support a **minimal UI** 🔧.
 - Moves the Sidebar to the right.
-- Shows only a single editor tab for a cleaner look.
+- Hides editor tabs, showing only the active file for a cleaner look.
 - Hides the default VS Code welcome page and Command Center to reduce clutter.
+- Hides the custom title bar for a **distraction-free** look.
+- Automatically resizes the centered layout to fit content.
 - Toggles the menu bar (shows on Alt key press) for a **minimal UI** 🔧.
 
 #### ✍️ Editor Settings
@@ -92,6 +99,12 @@ The extension applies the following settings on first activation (if not already
 - Shows full folder structure in the Explorer.
 - Disables delete confirmation prompts and badges to reduce distractions.
 - Trims trailing whitespace and ensures final newlines in files.
+
+#### 🖋️ Typography Settings
+
+- Sets the editor font to `JetBrains Mono` for a **minimalist** look. _(If not installed, download and install from [JetBrains Mono](https://www.jetbrains.com/lp/mono/).)_
+- Configures code suggestion font size to 16 and line height to 30 for better readability.
+- Sets the terminal font size to 16 and line height to 1.5 for a comfortable experience.
 
 #### 🔍 Other
 
@@ -114,7 +127,7 @@ The extension applies the following settings on first activation (if not already
 
 ## ⓘ Extention Link (VS Code Marketplace)
 
-**╰┈➤[Minimal BLue Theme (Releasing Soon)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.minimal-blue)**
+**╰┈➤[Minimal Blue Theme (Releasing Soon)](https://marketplace.visualstudio.com/items?itemName=YourPublisherName.minimal-blue)**
 
 ## 🔗 Download (.vsix)
 
@@ -128,4 +141,4 @@ This extension is licensed under the [MIT License](LICENSE.md). 📄
 
 ---
 
-Enjoy coding with Minimal BLue and its **minimal UI** 🔧! 🌠
+Enjoy coding with Minimal Blue and its **minimal UI** 🔧! 🌠
