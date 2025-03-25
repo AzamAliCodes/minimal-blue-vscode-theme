@@ -1,8 +1,8 @@
 {
   "name": "minimal-blue",
-  "displayName": "Minimal BLue",
-  "description": "Minimal BLue Theme with recommended extensions, settings, and a custom welcome page!",
-  "version": "0.0.1",
+  "displayName": "Minimal Blue",
+  "description": "Minimal Blue is a dark, distraction-free theme for VS Code, designed for a sleek and minimal UI experience. It removes unnecessary UI elements, applies curated settings, and features a clean line highlight for better focus. Enjoy a blue, neon-inspired aesthetic with a custom welcome page for a clean, minimal coding experience.",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/AzamAliCodes/minimal-blue-vscode-theme.git"
@@ -11,27 +11,58 @@
     "vscode": "^1.98.0"
   },
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "minimal",
+    "blue",
+    "minimal blue",
+    "minimal blue theme",
+    "minimal blue theme ui",
+    "ui",
+    "minimal ui",
+    "minimal theme",
+    "neon theme",
+    "blue theme",
+    "distraction-free",
+    "clean ui",
+    "welcome page",
+    "dark theme",
+    "cosmic theme",
+    "neon blue",
+    "minimalist",
+    "productivity",
+    "coding theme",
+    "vscode theme",
+    "visual studio code theme",
+    "custom ui",
+    "minimalist theme",
+    "blue ui",
+    "neon ui",
+    "simple theme",
+    "clean theme",
+    "modern theme"
   ],
   "license": "MIT",
   "contributes": {
     "themes": [
       {
-        "label": "Minimal BLue",
+        "label": "Minimal Blue",
         "uiTheme": "vs-dark",
-        "path": "./themes/Minimal BLue-color-theme.json"
+        "path": "./themes/Minimal Blue-color-theme.json"
       }
     ],
     "viewsWelcome": [
       {
         "view": "explorer",
-        "contents": "Welcome to Minimal BLue\n[Explore the Cosmic Welcome Page](command:minimalBlue.showWelcome)"
+        "contents": "Welcome to Minimal Blue\n[Explore the Cosmic Welcome Page](command:minimalBlue.showWelcome)"
       }
     ],
     "commands": [
       {
         "command": "minimalBlue.showWelcome",
-        "title": "Minimal BLue: Show Welcome Page"
+        "title": "Minimal Blue: Show Welcome Page"
       }
     ]
   },
@@ -41,8 +72,7 @@
     "onLanguage:javascript",
     "onLanguage:typescript",
     "onLanguage:html",
-    "workspaceContains:**/*",
-    "onView:welcome"
+    "workspaceContains:**/*"
   ],
   "main": "./extension.js",
   "scripts": {
