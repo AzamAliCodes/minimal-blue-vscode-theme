@@ -6,13 +6,13 @@ const path = require("path");
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  console.log("Minimal BLue extension is now active!");
+  console.log("Minimal Blue extension is now active!");
 
   // Apply recommended settings if they haven't been customized
   const config = vscode.workspace.getConfiguration();
   const recommendedSettings = {
     // Theme and Appearance
-    "workbench.colorTheme": "Minimal BLue", // Sets the default theme to Minimal BLue
+    "workbench.colorTheme": "Minimal Blue", // Sets the default theme to Minimal Blue
     "workbench.iconTheme": "material-icon-theme", // Uses Material Icon Theme for icons
     "material-icon-theme.activeTheme": "material", // Configures Material Icon Theme to use the "material" variant
 
@@ -20,7 +20,7 @@ function activate(context) {
     "workbench.activityBar.location": "hidden", // Hides the Activity Bar for a cleaner UI
     "workbench.sideBar.location": "right", // Moves the Sidebar to the right side of the window
     "workbench.statusBar.visible": false, // Hides the Status Bar for a minimal look
-    "workbench.editor.showTabs": "single", // Shows only a single tab in the editor (hides tab bar if only one file is open)
+    "workbench.editor.showTabs": "none", // Hides editor tabs, showing only the active file
     "workbench.welcomePage.hidden": true, // Hides the default VS Code welcome page
     "workbench.startupEditor": "none", // Disables the default startup editor (e.g., welcome page)
     "workbench.layoutControl.enabled": false, // Disables the layout control buttons in the title bar
@@ -39,6 +39,7 @@ function activate(context) {
     "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }, // Sets Prettier as the formatter for JavaScript files
     "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }, // Sets Prettier as the formatter for TypeScript files
     "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }, // Sets Prettier as the formatter for HTML files
+    "editor.mouseWheelZoom": true, // Enable zooming the editor font using the mouse wheel + Ctrl
 
     // Editor Scrollbar Settings
     "editor.scrollbar.horizontal": "auto", // Auto-hide horizontal scrollbar (appears only when scrolling)
@@ -58,6 +59,8 @@ function activate(context) {
     "workbench.tree.enableStickyScroll": false, // Disables sticky scroll in the File Explorer tree
     "workbench.tree.renderIndentGuides": "none", // Hides indent guides in the File Explorer tree
     "workbench.tree.indent": 8, // Sets the indentation level in the File Explorer tree to 8 pixels
+    "workbench.tips.enabled": false, // Disable shortcut tips on the VS Code welcome/home page
+    "workbench.editor.centeredLayoutAutoResize": true, // Automatically resize the centered layout to fit content
 
     // Breadcrumbs and Navigation
     "breadcrumbs.enabled": false, // Disables breadcrumbs navigation at the top of the editor
@@ -68,6 +71,16 @@ function activate(context) {
     // Diff and Chat Editor
     "diffEditor.wordWrap": "on", // Enables word wrapping in the diff editor
     "chat.editor.wordWrap": "on", // Enables word wrapping in the chat editor (e.g., for GitHub Copilot chat)
+
+    // Window Management
+    "window.customTitleBarVisibility": "never", // Hide the custom title bar (if set to native, uses the OS default)
+
+    // Typography settings
+    "editor.fontFamily": "JetBrains Mono", // Set the default font family for the editor
+    "editor.suggestFontSize": 16, // Set the font size for code suggestions
+    "editor.suggestLineHeight": 30, // Set the line height for code suggestions
+    "terminal.integrated.lineHeight": 1.5, // Set the line height in the integrated terminal
+    "terminal.integrated.fontSize": 16, // Set the font size in the integrated terminal
   };
 
   // Apply the recommended settings if they haven't been customized by the user
@@ -92,12 +105,12 @@ function activate(context) {
   // If this is the first run, set the flag to true for subsequent runs
   if (!hasRunBefore) {
     context.globalState.update(HAS_RUN_KEY, true);
-    console.log("First run of Minimal BLue, skipping welcome page.");
+    console.log("First run of Minimal Blue, skipping welcome page.");
   }
 
   // Function to create or show the welcome page
   const showWelcomePage = (preserveFocus = true) => {
-    console.log("Attempting to show Minimal BLue Welcome page...");
+    console.log("Attempting to show Minimal Blue Welcome page...");
 
     // If the panel already exists, reveal it without taking focus (unless explicitly requested)
     if (welcomePanel) {
@@ -116,10 +129,10 @@ function activate(context) {
     }
 
     // Create a new webview panel
-    console.log("Creating new webview panel for Minimal BLue Welcome.");
+    console.log("Creating new webview panel for Minimal Blue Welcome.");
     welcomePanel = vscode.window.createWebviewPanel(
       "minimalBlueWelcome",
-      "Minimal BLue Welcome",
+      "Minimal Blue Welcome",
       { viewColumn: vscode.ViewColumn.One, preserveFocus: preserveFocus },
       {
         enableScripts: true,
@@ -175,7 +188,7 @@ function activate(context) {
   let disposableCommand = vscode.commands.registerCommand(
     "minimalBlue.showWelcome",
     () => {
-      console.log("Minimal BLue: Show Welcome Page command triggered.");
+      console.log("Minimal Blue: Show Welcome Page command triggered.");
       wasClosedByUser = false;
       showWelcomePage(false);
     }
@@ -213,12 +226,12 @@ function activate(context) {
       // If no editors are open (excluding the welcome panel), show the welcome page
       if (
         editors.length === 0 &&
-        config.get("workbench.colorTheme") === "Minimal BLue" &&
+        config.get("workbench.colorTheme") === "Minimal Blue" &&
         !wasClosedByUser &&
         hasRunBefore
       ) {
         console.log(
-          "No editors open and theme is Minimal BLue, showing welcome page."
+          "No editors open and theme is Minimal Blue, showing welcome page."
         );
         showWelcomePage(true);
       }
@@ -227,10 +240,10 @@ function activate(context) {
     context.subscriptions
   );
 
-  // Show the welcome page on startup if the theme is Minimal BLue, but only on subsequent runs
-  if (config.get("workbench.colorTheme") === "Minimal BLue" && hasRunBefore) {
+  // Show the welcome page on startup if the theme is Minimal Blue, but only on subsequent runs
+  if (config.get("workbench.colorTheme") === "Minimal Blue" && hasRunBefore) {
     console.log(
-      "Theme is Minimal BLue, scheduling welcome page to show immediately."
+      "Theme is Minimal Blue, scheduling welcome page to show immediately."
     );
     setTimeout(() => {
       // Close any existing editors (like the splash screen or welcome page)
@@ -263,7 +276,7 @@ function getWebviewContent(svgContent) {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Minimal BLue Welcome</title>
+      <title>Minimal Blue Welcome</title>
       <style>
         html, body {
           margin: 0;
@@ -292,7 +305,7 @@ function getWebviewContent(svgContent) {
 }
 
 function deactivate() {
-  console.log("Minimal BLue extension is now deactivated.");
+  console.log("Minimal Blue extension is now deactivated.");
 }
 
 module.exports = {
