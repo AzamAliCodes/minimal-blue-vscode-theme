@@ -47,6 +47,7 @@ function activate(context) {
     "editor.scrollbar.verticalScrollbarSize": 8, // Sets vertical scrollbar thickness to 8 pixels (comfortable & visible)
     "editor.scrollbar.horizontalScrollbarSize": 8, // Sets horizontal scrollbar thickness to 8 pixels (comfortable & visible)
     "editor.scrollbar.scrollByPage": false, // Prevents clicking the scrollbar from scrolling a full page
+    "editor.wordWrap": "on", // Enables word wrap for all files, so long lines automatically break to fit the editor width
 
     // File and Explorer Settings
     "explorer.compactFolders": false, // Disables compact folder view in the Explorer (shows full folder structure)
@@ -55,6 +56,7 @@ function activate(context) {
     "files.trimTrailingWhitespace": true, // Automatically trims trailing whitespace in files on save
     "files.trimFinalNewlines": true, // Ensures files end with a single newline on save
     "workbench.list.openMode": "singleClick", // Ensure single-click opens files in the Explorer
+    "explorer.sortOrder": "type", // Sort files by type (e.g., .js before .json)
 
     // Workbench Tree (File Explorer) Settings
     "workbench.tree.enableStickyScroll": false, // Disables sticky scroll in the File Explorer tree
