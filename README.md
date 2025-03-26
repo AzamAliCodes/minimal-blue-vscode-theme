@@ -46,7 +46,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
 ## 🌟 Features
 
 - 🖥️ **Minimal, Distraction-Free UI** 🔧: The core USP of Minimal Blue—hides unnecessary UI elements like the Activity Bar, Status Bar, and breadcrumbs for a clean, focused coding environment.
-- ✨ **Clean Line Highlight**: Features a highlight on the current line to keep your focus on the active code.
+- ✨ **Shiny Line Highlight**: Features a highlight on the current line to keep your focus on the active code.
 - 🎨 **Dark Minimal Theme**: A beautiful dark theme with a minimalist color palette.
 - 📄 **Custom Welcome Page**: Displays a welcome page (using `vshome.svg`) when no editors are open, enhancing the **minimal UI** 🔧 experience.
 - ⚙️ **Recommended Settings**: Automatically applies settings for a **minimal UI** 🔧, now organized into categories and applied only if not already customized.
@@ -87,6 +87,8 @@ The extension applies the following settings on first activation (if not already
 - Disables minimap character rendering and enables autohide to keep the editor clean.
 - Sets Prettier as the default formatter with format-on-save enabled.
 - Disables accessibility support for performance.
+- Enables word wrap so long lines automatically break to fit the editor width.
+-  Shiny Line Highlight: Enhances the active line highlight for better focus.
 
 #### 📜 Scrollbar Settings
 
@@ -99,6 +101,7 @@ The extension applies the following settings on first activation (if not already
 - Shows full folder structure in the Explorer.
 - Disables delete confirmation prompts and badges to reduce distractions.
 - Trims trailing whitespace and ensures final newlines in files.
+- Sorts files by type (e.g., `.js` before `.json`) for better organization.  
 
 #### 🖋️ Typography Settings
 
