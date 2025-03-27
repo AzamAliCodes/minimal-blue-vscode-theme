@@ -40,6 +40,7 @@ function activate(context) {
     "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }, // Sets Prettier as the formatter for TypeScript files
     "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }, // Sets Prettier as the formatter for HTML files
     "editor.mouseWheelZoom": true, // Enable zooming the editor font using the mouse wheel + Ctrl
+    "editor.wordWrap": "on", // Enables word wrap for all files, so long lines automatically break to fit the editor width
 
     // Editor Scrollbar Settings
     "editor.scrollbar.horizontal": "auto", // Auto-hide horizontal scrollbar (appears only when scrolling)
@@ -47,7 +48,6 @@ function activate(context) {
     "editor.scrollbar.verticalScrollbarSize": 8, // Sets vertical scrollbar thickness to 8 pixels (comfortable & visible)
     "editor.scrollbar.horizontalScrollbarSize": 8, // Sets horizontal scrollbar thickness to 8 pixels (comfortable & visible)
     "editor.scrollbar.scrollByPage": false, // Prevents clicking the scrollbar from scrolling a full page
-    "editor.wordWrap": "on", // Enables word wrap for all files, so long lines automatically break to fit the editor width
 
     // File and Explorer Settings
     "explorer.compactFolders": false, // Disables compact folder view in the Explorer (shows full folder structure)
@@ -82,8 +82,8 @@ function activate(context) {
     "editor.fontFamily": "JetBrains Mono", // Set the default font family for the editor
     "editor.suggestFontSize": 16, // Set the font size for code suggestions
     "editor.suggestLineHeight": 30, // Set the line height for code suggestions
-    "terminal.integrated.lineHeight": 1.5, // Set the line height in the integrated terminal
-    "terminal.integrated.fontSize": 16, // Set the font size in the integrated terminal
+    "terminal.integrated.lineHeight": 1, // Set the line height in the integrated terminal
+    "terminal.integrated.fontSize": 14, // Set the font size in the integrated terminal
   };
 
   // Apply the recommended settings, overwriting any existing user settings
@@ -96,6 +96,7 @@ function activate(context) {
   let welcomePanel = null;
   let wasClosedByUser = false;
   let isSidebarHidden = false; // Track whether we hid the sidebar
+  let wasSidebarOriginallyVisible = true; // Track the sidebar's original visibility state
 
   // Check if this is the first run of the extension
   const HAS_RUN_KEY = "minimalBlue.hasRunBefore";
@@ -106,6 +107,13 @@ function activate(context) {
     context.globalState.update(HAS_RUN_KEY, true);
     console.log("First run of Minimal Blue, skipping welcome page.");
   }
+
+  // Function to check if the sidebar is currently visible
+  const isSidebarVisible = () => {
+    return vscode.window.visibleTextEditors.length > 0
+      ? true
+      : !config.get("workbench.sideBar.hidden", false);
+  };
 
   // Function to create or show the welcome page
   const showWelcomePage = (preserveFocus = true) => {
@@ -118,12 +126,14 @@ function activate(context) {
       return;
     }
 
+    // Check the current visibility state of the sidebar before hiding it
+    wasSidebarOriginallyVisible = isSidebarVisible();
+    console.log(`Sidebar originally visible: ${wasSidebarOriginallyVisible}`);
+
     // Hide the sidebar to make the welcome page appear full-screen
-    if (!isSidebarHidden) {
+    if (wasSidebarOriginallyVisible && !isSidebarHidden) {
       console.log("Hiding sidebar to show welcome page in full window.");
-      vscode.commands.executeCommand(
-        "workbench.action.toggleSidebarVisibility"
-      );
+      vscode.commands.executeCommand("workbench.action.closeSidebar");
       isSidebarHidden = true;
     }
 
@@ -164,9 +174,9 @@ function activate(context) {
         console.log("Welcome panel closed by user.");
         welcomePanel = null;
         wasClosedByUser = true;
-        // Restore the sidebar if it was hidden
-        if (isSidebarHidden) {
-          console.log("Restoring sidebar visibility.");
+        // Restore the sidebar to its original state if it was hidden by the extension
+        if (isSidebarHidden && wasSidebarOriginallyVisible) {
+          console.log("Restoring sidebar visibility to its original state.");
           vscode.commands.executeCommand(
             "workbench.action.toggleSidebarVisibility"
           );
@@ -209,14 +219,17 @@ function activate(context) {
           welcomePanel.dispose();
           welcomePanel = null;
         }
-        // Restore the sidebar if it was hidden
-        if (isSidebarHidden) {
+        // Restore the sidebar to its original state if it was hidden by the extension
+        if (isSidebarHidden && wasSidebarOriginallyVisible) {
           console.log(
             "Restoring sidebar visibility because a file was opened."
           );
-          vscode.commands.executeCommand(
-            "workbench.action.toggleSidebarVisibility"
-          );
+          // Ensure the sidebar is visible without toggling if already shown
+          if (!isSidebarVisible()) {
+            vscode.commands.executeCommand(
+              "workbench.action.toggleSidebarVisibility"
+            );
+          }
           isSidebarHidden = false;
         }
       }
@@ -238,29 +251,24 @@ function activate(context) {
     context.subscriptions
   );
 
-  // Show the welcome page on startup if the theme is Minimal Blue, but only on subsequent runs
+  // Show the welcome page on startup if the theme is Minimal Blue and no editors are open, but only on subsequent runs
   if (config.get("workbench.colorTheme") === "Minimal Blue" && hasRunBefore) {
     console.log(
-      "Theme is Minimal Blue, scheduling welcome page to show immediately."
+      "Theme is Minimal Blue, checking for open editors after session restoration."
     );
     setTimeout(() => {
-      // Close any existing editors (like the splash screen or welcome page)
-      console.log("Closing all editors to ensure welcome page displays.");
-      vscode.commands
-        .executeCommand("workbench.action.closeAllEditors")
-        .then(() => {
-          // Explicitly close the default welcome page
-          console.log("Closing default welcome page if open.");
-          vscode.commands.executeCommand("workbench.action.closeActiveEditor");
-          if (
-            vscode.window.visibleTextEditors.length === 0 &&
-            !wasClosedByUser
-          ) {
-            console.log("No editors open, showing welcome page.");
-            showWelcomePage(true);
-          }
-        });
-    }, 100); // Delay to ensure VS Code is fully initialized
+      // Check if there are any visible editors after session restoration
+      if (vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
+        console.log(
+          "No editors open after session restoration, showing welcome page."
+        );
+        showWelcomePage(true);
+      } else {
+        console.log(
+          "Editors are open after session restoration, skipping welcome page."
+        );
+      }
+    }, 500); // Increased delay to ensure session restoration completes
   }
 
   // Monitor theme changes to show/hide the welcome page
