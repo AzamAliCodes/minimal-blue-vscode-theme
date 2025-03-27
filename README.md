@@ -28,7 +28,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
    - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
 3. Click the **`...` (menu button)** in the top-right corner of the Extensions view.
 4. Select **Install from VSIX...**.
-5. Locate and select the `minimal-blue-0.0.1.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+5. Locate and select the `minimal-blue-0.0.2.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
 6. Restart VS Code if necessary.
 
 #### **Option 2: Using the Terminal**
@@ -88,7 +88,7 @@ The extension applies the following settings on first activation (if not already
 - Sets Prettier as the default formatter with format-on-save enabled.
 - Disables accessibility support for performance.
 - Enables word wrap so long lines automatically break to fit the editor width.
--  Shiny Line Highlight: Enhances the active line highlight for better focus.
+- Shiny Line Highlight: Enhances the active line highlight for better focus.
 
 #### 📜 Scrollbar Settings
 
@@ -101,18 +101,51 @@ The extension applies the following settings on first activation (if not already
 - Shows full folder structure in the Explorer.
 - Disables delete confirmation prompts and badges to reduce distractions.
 - Trims trailing whitespace and ensures final newlines in files.
-- Sorts files by type (e.g., `.js` before `.json`) for better organization.  
+- Sorts files by type (e.g., `.js` before `.json`) for better organization.
 
 #### 🖋️ Typography Settings
 
 - Sets the editor font to `JetBrains Mono` for a **minimalist** look. _(If not installed, download and install from [JetBrains Mono](https://www.jetbrains.com/lp/mono/).)_
 - Configures code suggestion font size to 16 and line height to 30 for better readability.
-- Sets the terminal font size to 16 and line height to 1.5 for a comfortable experience.
+- Sets the terminal font size to 14 and line height to 1 for a comfortable experience.
 
 #### 🔍 Other
 
 - Disables breadcrumbs, Git decorations, and sticky scroll in the File Explorer to maintain a **minimal UI** 🔧.
 - Enables word wrapping in the diff and chat editors.
+
+---
+
+## ⌨️ Keyboard Shortcuts
+
+For a minimal experience, many UI elements are hidden to reduce distractions. Keyboard shortcuts allow you to access commands and navigate the interface quickly without relying on visible buttons. Click the arrow below to reveal the complete list of essential keyboard shortcuts:
+
+<details>
+  <summary><strong>Click here to view Keyboard Shortcuts</strong></summary>
+
+| Function                      | Windows/Linux                | macOS                        |
+| ----------------------------- | ---------------------------- | ---------------------------- |
+| **Command Palette**           | Ctrl+Shift+P                 | Cmd+Shift+P                  |
+| **Quick File Navigation**     | Ctrl+P                       | Cmd+P                        |
+| **Search in Files**           | Ctrl+Shift+F                 | Cmd+Shift+F                  |
+| **Find in Editor**            | Ctrl+F                       | Cmd+F P                      |
+| **Close Editor**              | Ctrl+W                       | Cmd+W                        |
+| **Split Editor**              | Ctrl+\                       | Cmd+\                        |
+| **Focus Editor Group 1**      | Ctrl+1                       | Cmd+1                        |
+| **Focus Editor Group 2**      | Ctrl+2                       | Cmd+2                        |
+| **Toggle Extensions View**    | Ctrl+Shift+X                 | Cmd+Shift+X                  |
+| **Open Settings**             | Ctrl+,                       | Cmd+,                        |
+| **Toggle Terminal**           | Ctrl+`                       | Cmd+`                        |
+| **Cycle Open Editors**        | Ctrl+Tab                     | Cmd+Tab                      |
+| **Toggle Sidebar (Explorer)** | Ctrl+B                       | Cmd+B                        |
+| **Toggle Menu Bar**           | Press Alt (reveals menu bar) | Press Alt (reveals menu bar) |
+| **Start/Continue Debugging**  | F5                           | F5                           |
+| **Stop Debugging**            | Shift+F5                     | Shift+F5                     |
+| **Step Over (Debug)**         | F10                          | F10                          |
+| **Step Into (Debug)**         | F11                          | F11                          |
+| **Step Out (Debug)**          | Shift+F11                    | Shift+F11                    |
+
+</details>
 
 ---
 
@@ -143,5 +176,3 @@ The extension applies the following settings on first activation (if not already
 This extension is licensed under the [MIT License](LICENSE.md). 📄
 
 ---
-
-Enjoy coding with Minimal Blue and its **minimal UI** 🔧! 🌠
