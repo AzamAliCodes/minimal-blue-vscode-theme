@@ -84,6 +84,7 @@ function activate(context) {
     "editor.suggestLineHeight": 30, // Set the line height for code suggestions
     "terminal.integrated.lineHeight": 1.3, // Set the line height in the integrated terminal
     "terminal.integrated.fontSize": 14, // Set the font size in the integrated terminal
+    "editor.fontLigatures": false, // Disables font ligatures for better readability
   };
 
   // Apply the recommended settings, overwriting any existing user settings
