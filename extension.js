@@ -82,7 +82,7 @@ function activate(context) {
     "editor.fontFamily": "JetBrains Mono", // Set the default font family for the editor
     "editor.suggestFontSize": 16, // Set the font size for code suggestions
     "editor.suggestLineHeight": 30, // Set the line height for code suggestions
-    "terminal.integrated.lineHeight": 1, // Set the line height in the integrated terminal
+    "terminal.integrated.lineHeight": 1.3, // Set the line height in the integrated terminal
     "terminal.integrated.fontSize": 14, // Set the font size in the integrated terminal
   };
 
@@ -95,8 +95,6 @@ function activate(context) {
   // Variable to hold the webview panel
   let welcomePanel = null;
   let wasClosedByUser = false;
-  let isSidebarHidden = false; // Track whether we hid the sidebar
-  let wasSidebarOriginallyVisible = true; // Track the sidebar's original visibility state
 
   // Check if this is the first run of the extension
   const HAS_RUN_KEY = "minimalBlue.hasRunBefore";
@@ -108,13 +106,6 @@ function activate(context) {
     console.log("First run of Minimal Blue, skipping welcome page.");
   }
 
-  // Function to check if the sidebar is currently visible
-  const isSidebarVisible = () => {
-    return vscode.window.visibleTextEditors.length > 0
-      ? true
-      : !config.get("workbench.sideBar.hidden", false);
-  };
-
   // Function to create or show the welcome page
   const showWelcomePage = (preserveFocus = true) => {
     console.log("Attempting to show Minimal Blue Welcome page...");
@@ -124,17 +115,6 @@ function activate(context) {
       console.log("Welcome panel already exists, revealing it.");
       welcomePanel.reveal(vscode.ViewColumn.One, preserveFocus);
       return;
-    }
-
-    // Check the current visibility state of the sidebar before hiding it
-    wasSidebarOriginallyVisible = isSidebarVisible();
-    console.log(`Sidebar originally visible: ${wasSidebarOriginallyVisible}`);
-
-    // Hide the sidebar to make the welcome page appear full-screen
-    if (wasSidebarOriginallyVisible && !isSidebarHidden) {
-      console.log("Hiding sidebar to show welcome page in full window.");
-      vscode.commands.executeCommand("workbench.action.closeSidebar");
-      isSidebarHidden = true;
     }
 
     // Create a new webview panel
@@ -174,14 +154,6 @@ function activate(context) {
         console.log("Welcome panel closed by user.");
         welcomePanel = null;
         wasClosedByUser = true;
-        // Restore the sidebar to its original state if it was hidden by the extension
-        if (isSidebarHidden && wasSidebarOriginallyVisible) {
-          console.log("Restoring sidebar visibility to its original state.");
-          vscode.commands.executeCommand(
-            "workbench.action.toggleSidebarVisibility"
-          );
-          isSidebarHidden = false;
-        }
       },
       null,
       context.subscriptions
@@ -218,19 +190,6 @@ function activate(context) {
         if (welcomePanel) {
           welcomePanel.dispose();
           welcomePanel = null;
-        }
-        // Restore the sidebar to its original state if it was hidden by the extension
-        if (isSidebarHidden && wasSidebarOriginallyVisible) {
-          console.log(
-            "Restoring sidebar visibility because a file was opened."
-          );
-          // Ensure the sidebar is visible without toggling if already shown
-          if (!isSidebarVisible()) {
-            vscode.commands.executeCommand(
-              "workbench.action.toggleSidebarVisibility"
-            );
-          }
-          isSidebarHidden = false;
         }
       }
 
