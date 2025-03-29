@@ -4,6 +4,19 @@ All notable changes to the `Minimal Blue` extension will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### 🎉 Stable Release
+
+- **First official stable release of Minimal Blue on the VS Code Marketplace.**
+- **No code changes** from `v0.0.3`. This release ensures **general availability** and marks the first production-ready version.
+- If you are using **v0.0.3**, there is **no need to update**, as this version is identical.
+
+### Added
+
+- **Added `"publisher": "AzamAli"`** for publishing under the correct name.
+- **Upgraded `"version"` to `1.0.1`** for the first major release.
+- **Updated `"engines.vscode"` to `^1.75.0`** for compatibility with newer VS Code versions.
+- **Updated README** with publisher details and the extension marketplace link.
+
 ## [0.0.3] - 2025-03-29
 
 ### Added
