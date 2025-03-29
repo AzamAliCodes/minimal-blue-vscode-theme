@@ -123,27 +123,27 @@ For a minimal experience, many UI elements are hidden to reduce distractions. Ke
 <details>
   <summary><strong>Click here to view Keyboard Shortcuts</strong></summary>
 
-| Function                      | Windows/Linux                | macOS                        |
-| ----------------------------- | ---------------------------- | ---------------------------- |
-| **Command Palette**           | Ctrl+Shift+P                 | Cmd+Shift+P                  |
-| **Quick File Navigation**     | Ctrl+P                       | Cmd+P                        |
-| **Search in Files**           | Ctrl+Shift+F                 | Cmd+Shift+F                  |
-| **Find in Editor**            | Ctrl+F                       | Cmd+F P                      |
-| **Close Editor**              | Ctrl+W                       | Cmd+W                        |
-| **Split Editor**              | Ctrl+\                       | Cmd+\                        |
-| **Focus Editor Group 1**      | Ctrl+1                       | Cmd+1                        |
-| **Focus Editor Group 2**      | Ctrl+2                       | Cmd+2                        |
-| **Toggle Extensions View**    | Ctrl+Shift+X                 | Cmd+Shift+X                  |
-| **Open Settings**             | Ctrl+,                       | Cmd+,                        |
-| **Toggle Terminal**           | Ctrl+`                       | Cmd+`                        |
-| **Cycle Open Editors**        | Ctrl+Tab                     | Cmd+Tab                      |
-| **Toggle Sidebar (Explorer)** | Ctrl+B                       | Cmd+B                        |
-| **Toggle Menu Bar**           | Press Alt (reveals menu bar) | Press Alt (reveals menu bar) |
-| **Start/Continue Debugging**  | F5                           | F5                           |
-| **Stop Debugging**            | Shift+F5                     | Shift+F5                     |
-| **Step Over (Debug)**         | F10                          | F10                          |
-| **Step Into (Debug)**         | F11                          | F11                          |
-| **Step Out (Debug)**          | Shift+F11                    | Shift+F11                    |
+
+| Function                            | Windows/Linux        | macOS          |
+|-------------------------------------|----------------------|---------------|
+| Toggle Menu Bar (Reveals Menu Bar)  | `Alt`                | `Alt`         |
+| Quick Open File                     | `Ctrl+P`             | `Cmd+P`       |
+| Open Command Palette                | `Ctrl+Shift+P`       | `Cmd+Shift+P` |
+| Open Explorer                        | `Ctrl+Shift+E`       | `Cmd+Shift+E` |
+| Open Extensions View                 | `Ctrl+Shift+X`       | `Cmd+Shift+X` |
+| Search in Workspace                 | `Ctrl+Shift+F`       | `Cmd+Shift+F` |
+| Find in File                         | `Ctrl+F`             | `Cmd+F`       |
+| Toggle Sidebar                       | `Ctrl+B`             | `Cmd+B`       |
+| Close Active Editor                  | `Ctrl+W`             | `Cmd+W`       |
+| Close All Editors                    | `Ctrl+K W`           | `Cmd+K W`     |
+| Split Editor                         | `Ctrl+\`             | `Cmd+\`       |
+| Toggle Terminal                      | `` Ctrl+` ``         | `` Cmd+` ``   |
+| Focus Editor Group 1                 | `Ctrl+1`             | `Cmd+1`       |
+| Focus Editor Group 2                 | `Ctrl+2`             | `Cmd+2`       |
+| Start Debugging                      | `F5`                 | `F5`          |
+| Stop Debugging                       | `Shift+F5`           | `Shift+F5`    |
+
+
 
 </details>
 
