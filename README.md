@@ -6,17 +6,18 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
 
 ## 💻 Interface Preview
 
-### 🎥 Live Preview (GIF)
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2h5NjlxOTlrMG1hd3FmaTc2NnFiOWRkc2ZseXRjMTVrNTdyOWhoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WC0qwCBB2wReKwzzGA/giphy.gif" alt="Minimal Blue Preview" width="55%" />
-
-- _Experience the extension in action with its clean, minimal interface._
-
 ### 📷 Screenshots
 
 <p align="center"> <img src="preview/screenshot-1.png" width="49%" style="margin-right: 5px;"> <img src="preview/screenshot-2.png" width="49%"> </p> <p align="center">
 <img src="preview/screenshot-3.png" width="49%" style="margin-right: 5px;"> <img src="preview/screenshot-4.png" width="49%"> </p>
 
 - _A detailed view of the interface, including the code preview within the extension._
+
+### 🎥 Live Preview (GIF)
+
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2h5NjlxOTlrMG1hd3FmaTc2NnFiOWRkc2ZseXRjMTVrNTdyOWhoaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WC0qwCBB2wReKwzzGA/giphy.gif" alt="Minimal Blue Preview" width="55%" />
+
+- _Experience the extension in action with its clean, minimal interface._
 
 ---
 
