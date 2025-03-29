@@ -4,6 +4,8 @@ All notable changes to the `Minimal Blue` extension will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-03-29
+
 ### 🎉 Stable Release
 
 - **First official stable release of Minimal Blue on the VS Code Marketplace.**
@@ -83,6 +85,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Added theme monitoring to show/hide the welcome page based on whether the `Minimal Blue` theme is active.
 - Added recommendations for Prettier and Material Icon Theme extensions.
 
+[1.0.1]: https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/tag/v1.0.1
 [0.0.3]: https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/tag/v0.0.3
 [0.0.2]: https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/tag/v0.0.2
 [0.0.1]: https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/tag/v0.0.1
