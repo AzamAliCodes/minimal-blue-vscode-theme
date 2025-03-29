@@ -45,7 +45,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
    - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
 3. Click the **`...` (menu button)** in the top-right corner of the Extensions view.
 4. Select **Install from VSIX...**.
-5. Locate and select the `minimal-blue-1.0.0.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+5. Locate and select the `minimal-blue-1.0.1.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
 6. Restart VS Code if necessary.
 
 #### **Option 2: Using the Terminal**
@@ -54,7 +54,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
 2. Open your terminal.
 3. Run the following command: _[ Within command update the version of .vsix file downloaded ]_
    ```sh
-   code --install-extension minimal-blue-1.0.0.vsix
+   code --install-extension minimal-blue-1.0.1.vsix
    ```
 4. Restart VS Code if necessary.
 
