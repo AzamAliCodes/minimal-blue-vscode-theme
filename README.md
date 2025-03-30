@@ -143,7 +143,7 @@ For a minimal experience, many UI elements are hidden to reduce distractions. Ke
 
 | Function                           | Windows/Linux  | macOS         |
 | ---------------------------------- | -------------- | ------------- |
-| Toggle Menu Bar (Reveals Menu Bar) | `Alt`          | `Alt`         |
+| Toggle Menu Bar (Reveals Menu Bar) | `Alt`          | `Comming Soon`         |
 | Quick Open File                    | `Ctrl+P`       | `Cmd+P`       |
 | Open Command Palette               | `Ctrl+Shift+P` | `Cmd+Shift+P` |
 | Open Explorer                      | `Ctrl+Shift+E` | `Cmd+Shift+E` |
