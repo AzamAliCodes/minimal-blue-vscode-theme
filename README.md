@@ -139,26 +139,26 @@ The extension applies the following settings on first activation (if not already
 For a minimal experience, many UI elements are hidden to reduce distractions. Keyboard shortcuts allow you to access commands and navigate the interface quickly without relying on visible buttons. Click the arrow below to reveal the complete list of essential keyboard shortcuts:
 
 <details>
-  <summary><strong>Click here to view Keyboard Shortcuts</strong></summary>
+  <summary><strong>❗Click here to view Keyboard Shortcuts</strong></summary>
 
-| Function                           | Windows/Linux  | macOS         |
-| ---------------------------------- | -------------- | ------------- |
-| Toggle Menu Bar (Reveals Menu Bar) | `Alt`          | `Comming Soon`         |
-| Quick Open File                    | `Ctrl+P`       | `Cmd+P`       |
-| Open Command Palette               | `Ctrl+Shift+P` | `Cmd+Shift+P` |
-| Open Explorer                      | `Ctrl+Shift+E` | `Cmd+Shift+E` |
-| Open Extensions View               | `Ctrl+Shift+X` | `Cmd+Shift+X` |
-| Search in Workspace                | `Ctrl+Shift+F` | `Cmd+Shift+F` |
-| Find in File                       | `Ctrl+F`       | `Cmd+F`       |
-| Toggle Sidebar                     | `Ctrl+B`       | `Cmd+B`       |
-| Close Active Editor                | `Ctrl+W`       | `Cmd+W`       |
-| Close All Editors                  | `Ctrl+K W`     | `Cmd+K W`     |
-| Split Editor                       | `Ctrl+\`       | `Cmd+\`       |
-| Toggle Terminal                    | `` Ctrl+` ``   | `` Cmd+` ``   |
-| Focus Editor Group 1               | `Ctrl+1`       | `Cmd+1`       |
-| Focus Editor Group 2               | `Ctrl+2`       | `Cmd+2`       |
-| Start Debugging                    | `F5`           | `F5`          |
-| Stop Debugging                     | `Shift+F5`     | `Shift+F5`    |
+| Function                           | Windows/Linux  | macOS            |
+| ---------------------------------- | -------------- | ---------------- |
+| Toggle Menu Bar (Reveals Menu Bar) | `Alt`          | `Comming Soon`   |
+| Quick Open File                    | `Ctrl+P`       | `Cmd(⌘)+P`       |
+| Open Command Palette               | `Ctrl+Shift+P` | `Cmd(⌘)+Shift+P` |
+| Open Explorer                      | `Ctrl+Shift+E` | `Cmd(⌘)+Shift+E` |
+| Open Extensions View               | `Ctrl+Shift+X` | `Cmd(⌘)+Shift+X` |
+| Search in Workspace                | `Ctrl+Shift+F` | `Cmd(⌘)+Shift+F` |
+| Find in File                       | `Ctrl+F`       | `Cmd(⌘)+F`       |
+| Toggle Sidebar                     | `Ctrl+B`       | `Cmd(⌘)+B`       |
+| Close Active Editor                | `Ctrl+W`       | `Cmd(⌘)+W`       |
+| Close All Editors                  | `Ctrl+K W`     | `Cmd(⌘)+K W`     |
+| Split Editor                       | `Ctrl+\`       | `Cmd(⌘)+\`       |
+| Toggle Terminal                    | `` Ctrl+` ``   | `` Cmd(⌘)+` ``   |
+| Focus Editor Group 1               | `Ctrl+1`       | `Cmd(⌘)+1`       |
+| Focus Editor Group 2               | `Ctrl+2`       | `Cmd(⌘)+2`       |
+| Start Debugging                    | `F5`           | `F5`             |
+| Stop Debugging                     | `Shift+F5`     | `Shift+F5`       |
 
 </details>
 
