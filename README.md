@@ -45,7 +45,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
    - Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
 3. Click the **`...` (menu button)** in the top-right corner of the Extensions view.
 4. Select **Install from VSIX...**.
-5. Locate and select the `minimal-blue-1.0.1.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+5. Locate and select the `minimal-blue-1.0.4.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
 6. Restart VS Code if necessary.
 
 #### **Option 2: Using the Terminal**
@@ -54,7 +54,7 @@ Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to pro
 2. Open your terminal.
 3. Run the following command: _[ Within command update the version of .vsix file downloaded ]_
    ```sh
-   code --install-extension minimal-blue-1.0.1.vsix
+   code --install-extension minimal-blue-1.0.4.vsix
    ```
 4. Restart VS Code if necessary.
 
@@ -91,7 +91,8 @@ The extension applies the following settings on first activation (if not already
 
 #### 🖼️ Workbench Layout
 
-- Hides the Activity Bar and Status Bar to support a **minimal UI** 🔧.
+- Moves the Activity Bar to the bottom to support a **minimal UI** 🔧.
+- Hides the Status Bar to reduce visual clutter 🔧.
 - Moves the Sidebar to the right.
 - Hides editor tabs, showing only the active file for a cleaner look.
 - Hides the default VS Code welcome page and Command Center to reduce clutter.
@@ -141,24 +142,24 @@ For a minimal experience, many UI elements are hidden to reduce distractions. Ke
 <details>
   <summary><strong>❗Click here to view Keyboard Shortcuts</strong></summary>
 
-| Function                           | Windows/Linux  | macOS            |
-| ---------------------------------- | -------------- | ---------------- |
-| Toggle Menu Bar (Reveals Menu Bar) | `Alt`          | `Comming Soon`   |
-| Quick Open File                    | `Ctrl+P`       | `Cmd(⌘)+P`       |
-| Open Command Palette               | `Ctrl+Shift+P` | `Cmd(⌘)+Shift+P` |
-| Open Explorer                      | `Ctrl+Shift+E` | `Cmd(⌘)+Shift+E` |
-| Open Extensions View               | `Ctrl+Shift+X` | `Cmd(⌘)+Shift+X` |
-| Search in Workspace                | `Ctrl+Shift+F` | `Cmd(⌘)+Shift+F` |
-| Find in File                       | `Ctrl+F`       | `Cmd(⌘)+F`       |
-| Toggle Sidebar                     | `Ctrl+B`       | `Cmd(⌘)+B`       |
-| Close Active Editor                | `Ctrl+W`       | `Cmd(⌘)+W`       |
-| Close All Editors                  | `Ctrl+K W`     | `Cmd(⌘)+K W`     |
-| Split Editor                       | `Ctrl+\`       | `Cmd(⌘)+\`       |
-| Toggle Terminal                    | `` Ctrl+` ``   | `` Cmd(⌘)+` ``   |
-| Focus Editor Group 1               | `Ctrl+1`       | `Cmd(⌘)+1`       |
-| Focus Editor Group 2               | `Ctrl+2`       | `Cmd(⌘)+2`       |
-| Start Debugging                    | `F5`           | `F5`             |
-| Stop Debugging                     | `Shift+F5`     | `Shift+F5`       |
+| Function | Windows/Linux | macOS |
+|---|---|---|
+| Toggle Menu Bar (Reveals Menu Bar) | `Alt` | `Auto-show` |
+| Quick Open File | `Ctrl+P` | `Cmd(⌘)+P` |
+| Open Command Palette | `Ctrl+Shift+P` | `Cmd(⌘)+Shift+P` |
+| Open Explorer | `Ctrl+Shift+E` | `Cmd(⌘)+Shift+E` |
+| Open Extensions View | `Ctrl+Shift+X` | `Cmd(⌘)+Shift+X` |
+| Search in Workspace | `Ctrl+Shift+F` | `Cmd(⌘)+Shift+F` |
+| Find in File | `Ctrl+F` | `Cmd(⌘)+F` |
+| Toggle Sidebar | `Ctrl+B` | `Cmd(⌘)+B` |
+| Close Active Editor | `Ctrl+W` | `Cmd(⌘)+W` |
+| Close All Editors | `Ctrl+K W` | `Cmd(⌘)+K W` |
+| Split Editor | `Ctrl+\` | `Cmd(⌘)+\` |
+| Toggle Terminal | `` Ctrl+` `` | `` Cmd(⌘)+` `` |
+| Focus Editor Group 1 | `Ctrl+1` | `Cmd(⌘)+1` |
+| Focus Editor Group 2 | `Ctrl+2` | `Cmd(⌘)+2` |
+| Start Debugging | `F5` | `F5` |
+| Stop Debugging | `Shift+F5` | `Shift+F5` |
 
 </details>
 

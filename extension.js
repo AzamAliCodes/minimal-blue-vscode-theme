@@ -17,7 +17,7 @@ function activate(context) {
     "material-icon-theme.activeTheme": "material", // Configures Material Icon Theme to use the "material" variant
 
     // Workbench Layout
-    "workbench.activityBar.location": "hidden", // Hides the Activity Bar for a cleaner UI
+    "workbench.activityBar.location": "bottom", // Moves the Activity Bar to the bottom for a cleaner UI
     "workbench.sideBar.location": "right", // Moves the Sidebar to the right side of the window
     "workbench.statusBar.visible": false, // Hides the Status Bar for a minimal look
     "workbench.editor.showTabs": "none", // Hides editor tabs, showing only the active file
