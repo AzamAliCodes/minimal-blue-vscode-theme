@@ -2,7 +2,7 @@
   "name": "minimal-blue",
   "publisher": "AzamAli",
   "displayName": "Minimal Blue",
-  "description": "Minimal Blue is a dark, distraction-free theme for VS Code, designed for a sleek and minimal UI experience.",
+  "description": "Minimal Blue is a dark, distraction-free theme for VS Code, designed for a sleek and minimal UI experience. It removes unnecessary UI elements, applies curated settings, and features a clean line highlight for better focus. Enjoy a blue, neon-inspired aesthetic with a custom welcome page for a clean, minimal coding experience.",
   "version": "2.0.0",
   "icon": "logo.png",
   "repository": {
@@ -13,8 +13,47 @@
     "vscode": "^1.75.0"
   },
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
   ],
+  "keywords": [
+    "minimal",
+    "blue",
+    "minimal blue",
+    "minimal blue theme",
+    "minimal blue theme ui",
+    "ui",
+    "minimal ui",
+    "minimal theme",
+    "neon theme",
+    "blue theme",
+    "distraction-free",
+    "clean ui",
+    "welcome page",
+    "dark theme",
+    "cosmic theme",
+    "neon blue",
+    "minimalist",
+    "productivity",
+    "coding theme",
+    "vscode theme",
+    "visual studio code theme",
+    "custom ui",
+    "minimalist theme",
+    "blue ui",
+    "neon ui",
+    "simple theme",
+    "clean theme",
+    "modern theme",
+    "super dark",
+    "super dark theme",
+    "pitch black",
+    "black theme",
+    "oled",
+    "oled theme",
+    "ultra dark"
+  ],
+  "license": "MIT",
   "contributes": {
     "themes": [
       {
@@ -46,5 +85,11 @@
   "scripts": {
     "vscode:prepublish": "echo 'Prepublish step completed'",
     "package": "vsce package"
-  }
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "extensionRecommendations": [
+    "PKief.material-icon-theme",
+    "esbenp.prettier-vscode"
+  ]
 }
