@@ -40,7 +40,7 @@
     ]
   },
   "activationEvents": [
-    "onStartupFinished"
+    "*"
   ],
   "main": "./extension.js",
   "scripts": {

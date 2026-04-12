@@ -105,7 +105,7 @@ async function activate(context) {
   }
 
   // Check if this is the first run of the extension
-  const HAS_RUN_KEY = "minimalBlue.firstRunV3";
+  const HAS_RUN_KEY = "minimalBlue.firstRunV2";
   const hasRunBefore = context.globalState.get(HAS_RUN_KEY, false);
 
   // If this is the FIRST run, force apply EVERYTHING immediately
@@ -139,10 +139,10 @@ async function activate(context) {
   // Startup check: if theme is active and no editors are open, show welcome page
   setTimeout(() => {
     const theme = vscode.workspace.getConfiguration().get("workbench.colorTheme");
-    if (theme && theme.startsWith("Minimal Blue") && vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
+    if (theme && (theme === "Minimal Blue" || theme === "Minimal Blue (Super Dark)") && vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
       showWelcomePage(context, true);
     }
-  }, 1000);
+  }, 1500);
 }
 
 function showWelcomePage(context, preserveFocus = true) {
@@ -161,7 +161,7 @@ function showWelcomePage(context, preserveFocus = true) {
   const svgPath = path.join(context.extensionPath, "vshome.svg");
   const svgContent = fs.existsSync(svgPath) ? fs.readFileSync(svgPath, "utf8") : "";
 
-  welcomePanel.webview.html = `<html><body style="background:#051726;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;overflow:hidden;">${svgContent}</body></html>`;
+  welcomePanel.webview.html = `<html><body style="background:var(--vscode-editor-background, #051726);display:flex;justify-content:center;align-items:center;height:100vh;margin:0;overflow:hidden;">${svgContent}</body></html>`;
   welcomePanel.onDidDispose(() => { 
     welcomePanel = null; 
     wasClosedByUser = true;
