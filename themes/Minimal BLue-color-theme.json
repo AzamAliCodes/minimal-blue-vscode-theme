@@ -115,7 +115,7 @@
     "editorSuggestWidget.border": "#1E90FF",
     "editorSuggestWidget.foreground": "#87CEEB",
     "editorSuggestWidget.highlightForeground": "#1E90FF",
-    "editorSuggestWidget.selectedBackground": "#0A1C2B",
+    "editorSuggestWidget.selectedBackground": "#1E90FF44",
     "debugToolBar.background": "#1E2A3C",
     "debugExceptionWidget.background": "#1E2A3C",
     "debugExceptionWidget.border": "#1E90FF",
