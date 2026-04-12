@@ -152,7 +152,7 @@
     "list.hoverForeground": "#87CEEB",
     "list.inactiveSelectionBackground": "#0A1C2B",
     "list.inactiveSelectionForeground": "#4682B4",
-    "list.focusOutline": "#00000000",
+    "list.focusOutline": "#1E90FF",
     "list.hoverOutline": "#1E90FF",
     "list.inactiveFocusOutline": "#00000000",
     "list.activeSelectionOutline": "#1E90FF",
