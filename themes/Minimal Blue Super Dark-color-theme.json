@@ -250,7 +250,7 @@
     "textBlockQuote.border": "#1E90FF",
     "textCodeBlock.background": "#060609",
     "textLink.activeForeground": "#1E90FF",
-    "textLink.foreground": "#0F487F",
+    "textLink.foreground": "#1E90FF",
     "textPreformat.foreground": "#1E90FF",
     "textSeparator.foreground": "#0A0A0F",
     "titleBar.activeBackground": "#080810",
