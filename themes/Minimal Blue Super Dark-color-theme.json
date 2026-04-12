@@ -86,7 +86,7 @@
     "editorGutter.background": "#060609",
     "editorGutter.addedBackground": "#1E90FF",
     "editorGutter.deletedBackground": "#FF4500",
-    "editorGutter.modifiedBackground": "#0F487F",
+    "editorGutter.modifiedBackground": "#1E90FF",
     "diffEditor.insertedTextBackground": "#1E90FF20",
     "diffEditorRemovedTextBackground": "#FF450020",
     "editorGroup.border": "#1E90FF",
