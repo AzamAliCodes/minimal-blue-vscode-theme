@@ -3,7 +3,7 @@
   "publisher": "AzamAli",
   "displayName": "Minimal Blue",
   "description": "Minimal Blue is a dark, distraction-free theme for VS Code, designed for a sleek and minimal UI experience. It removes unnecessary UI elements, applies curated settings, and features a clean line highlight for better focus. Enjoy a blue, neon-inspired aesthetic with a custom welcome page for a clean, minimal coding experience.",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "icon": "logo.png",
   "repository": {
     "type": "git",
@@ -53,6 +53,11 @@
         "label": "Minimal Blue",
         "uiTheme": "vs-dark",
         "path": "./themes/Minimal Blue-color-theme.json"
+      },
+      {
+        "label": "Minimal Blue (Super Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Minimal Blue Super Dark-color-theme.json"
       }
     ],
     "viewsWelcome": [
