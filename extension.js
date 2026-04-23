@@ -112,10 +112,10 @@ async function activate(context) {
   if (!hasRunBefore) {
     await applySettings(true);
     await context.globalState.update(HAS_RUN_KEY, true);
-    vscode.commands.executeCommand("minimalBlue.showWelcome");
-  } else {
-    // On subsequent runs, just ensure the UI settings are active (don't force theme)
-    applySettings(false);
+    // Use a small delay to ensure VS Code's UI is ready before showing the welcome page
+    setTimeout(() => {
+      vscode.commands.executeCommand("minimalBlue.showWelcome");
+    }, 1000);
   }
 
   // Register the manual command
@@ -129,7 +129,8 @@ async function activate(context) {
     vscode.workspace.onDidChangeConfiguration(async (event) => {
       if (event.affectsConfiguration("workbench.colorTheme")) {
         const theme = vscode.workspace.getConfiguration().get("workbench.colorTheme");
-        if (theme && theme.startsWith("Minimal Blue")) {
+        if (theme && (theme === "Minimal Blue" || theme === "Minimal Blue (Super Dark)")) {
+          // User explicitly selected the theme, so we can suggest/apply settings
           await applySettings(false);
         }
       }
