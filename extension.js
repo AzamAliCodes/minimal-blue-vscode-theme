@@ -15,7 +15,7 @@ async function activate(context) {
   const config = vscode.workspace.getConfiguration();
   const recommendedSettings = {
     // Theme and Appearance
-    "workbench.colorTheme": "Minimal Blue", // Sets the default theme to Minimal Blue
+    "workbench.colorTheme": "Minimal Blue (Super Dark)", // Sets the default theme to Minimal Blue (Super Dark)
     "workbench.iconTheme": "material-icon-theme", // Uses Material Icon Theme for icons
     "material-icon-theme.activeTheme": "material", // Configures Material Icon Theme to use the "material" variant
 
@@ -162,8 +162,8 @@ function showWelcomePage(context, preserveFocus = true) {
   const svgContent = fs.existsSync(svgPath) ? fs.readFileSync(svgPath, "utf8") : "";
 
   welcomePanel.webview.html = `<html><body style="background:var(--vscode-editor-background, #051726);display:flex;justify-content:center;align-items:center;height:100vh;margin:0;overflow:hidden;">${svgContent}</body></html>`;
-  welcomePanel.onDidDispose(() => { 
-    welcomePanel = null; 
+  welcomePanel.onDidDispose(() => {
+    welcomePanel = null;
     wasClosedByUser = true;
   });
 }

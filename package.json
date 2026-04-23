@@ -57,14 +57,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Minimal Blue",
-        "uiTheme": "vs-dark",
-        "path": "./themes/Minimal Blue-color-theme.json"
-      },
-      {
         "label": "Minimal Blue (Super Dark)",
         "uiTheme": "vs-dark",
         "path": "./themes/Minimal Blue Super Dark-color-theme.json"
+      },
+      {
+        "label": "Minimal Blue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Minimal Blue-color-theme.json"
       }
     ],
     "commands": [
