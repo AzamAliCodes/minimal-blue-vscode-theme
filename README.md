@@ -1,4 +1,4 @@
-# MINIMAL BLUE 🌌 (THEME + UI)
+# MINIMAL BLUE <img src="logo.png" width="40" style="vertical-align: middle;"> (THEME + UI)
 
 Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to provide a **minimal, distraction-free UI** 🔧 as its core USP, with a sleek aesthetic. This theme removes unnecessary UI elements, applies curated settings for a **minimal UI** 🔧, and features a clean line highlight to keep you focused on your code. It also includes a custom welcome page for a personalized touch. ✨
 
@@ -10,12 +10,34 @@ Now featuring **two variants**:
 
 ---
 
+| <small>📌 **QUICK LINKS:** [📷 SCREENSHOTS](#-interface-preview) • [🎥 LIVE PREVIEW](#-live-preview-gif) • [🚀 INSTALLATION](#-installation) • [🌟 FEATURES](#-features) • [⌨️ SHORTCUTS](#️-keyboard-shortcuts)</small> |
+| :--- |
+
+---
+
 ## 💻 INTERFACE PREVIEW
 
 ### 📷 SCREENSHOTS
 
-<p align="center"> <img src="preview/screenshot-1.png" width="49%" style="margin-right: 5px;"> <img src="preview/screenshot-2.png" width="49%"> </p> <p align="center">
-<img src="preview/screenshot-3.png" width="49%" style="margin-right: 5px;"> <img src="preview/screenshot-4.png" width="49%"> </p>
+#### 🌌 Minimal Blue (Super Dark) — *New Default*
+<p align="center">
+  <img src="preview/super-dark-1.png" width="49%" style="margin-right: 1px;">
+  <img src="preview/super-dark-2.png" width="49%">
+</p>
+<p align="center">
+  <img src="preview/super-dark-3.png" width="49%" style="margin-right: 1px;">
+  <img src="preview/super-dark-4.png" width="49%">
+</p>
+
+#### 🔵 Minimal Blue (Classic)
+<p align="center">
+  <img src="preview/classic-1.png" width="49%" style="margin-right: 1px;">
+  <img src="preview/classic-2.png" width="49%">
+</p>
+<p align="center">
+  <img src="preview/classic-3.png" width="49%" style="margin-right: 1px;">
+  <img src="preview/classic-4.png" width="49%">
+</p>
 
 - _A detailed view of the interface, including the code preview within the extension._
 
@@ -47,7 +69,7 @@ Now featuring **two variants**:
    * Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS).
 3. Click the `...` (menu button) in the top-right corner of the Extensions view.
 4. Select **Install from VSIX...**.
-5. Locate and select the `minimal-blue-2.0.0.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
+5. Locate and select the `minimal-blue-2.x.x.vsix` file downloaded from the [GitHub Releases page](https://github.com/AzamAliCodes/minimal-blue-vscode-theme/releases/latest).
 6. Restart VS Code if necessary.
 
 #### OPTION 2: USING THE TERMINAL
@@ -56,7 +78,7 @@ Now featuring **two variants**:
 2. Open your terminal.
 3. Run the following command: [ Within command update the version of .vsix file downloaded ]
    ```bash
-   code --install-extension minimal-blue-2.0.0.vsix
+   code --install-extension minimal-blue-2.x.x.vsix
    ```
 4. Restart VS Code if necessary.
 
@@ -85,7 +107,23 @@ Now featuring **two variants**:
 
 ### ⚙️ RECOMMENDED SETTINGS
 
-The extension applies the following settings on first activation (if not already customized) to achieve a **minimal UI** 🔧. Technical Update: Settings are now organized into categories and only applied if the user hasn't customized them, ensuring a non-intrusive experience. 🔧
+The extension applies recommended settings to achieve a **minimal UI** 🔧 only under two conditions:
+1. **First installation** of the extension.
+2. **Manual selection** of a "Minimal Blue" theme variant from the Color Theme menu.
+
+**Your personal customizations are respected.** Once the settings are applied, the extension will **not** override your changes upon VS Code restarts. You are free to personalize your setup further (e.g., moving the sidebar or toggling the status bar).
+
+#### 🛠️ HOW TO CUSTOMIZE MANUALLY
+
+If you wish to change any setting applied by the extension (e.g., moving the Sidebar back to the left):
+
+1. Open the **Command Palette**: `Ctrl+Shift+P` (Win/Linux) or `Cmd+Shift+P` (macOS).
+2. Search and select: **Preferences: Open User Settings (JSON)**.
+3. Modify or delete any setting in your `settings.json` file.
+
+> **✨ Persistence & Reset Tip:** Your manual changes are **permanent** and will **not** be overridden when you restart VS Code. If you ever want to restore the recommended **minimal UI** 🔧 settings, simply re-select either **Minimal Blue** or **Minimal Blue (Super Dark)** from the **Color Theme** menu.
+
+---
 
 #### 🎨 THEME AND APPEARANCE
 * Sets the theme to "Minimal Blue (Super Dark)" (can be manually changed to "Minimal Blue").
@@ -133,10 +171,10 @@ The extension applies the following settings on first activation (if not already
 
 ## ⌨️ KEYBOARD SHORTCUTS
 
-For a minimal experience, many UI elements are hidden to reduce distractions. Keyboard shortcuts allow you to access commands and navigate the interface quickly without relying on visible buttons. Click the arrow below to reveal the complete list of essential keyboard shortcuts:
+> **⚠️ ATTENTION:** Since Minimal Blue hides most UI buttons to give you maximum focus, **keyboard shortcuts** are essential for navigation.
 
 <details>
-  <summary><strong>❗Click here to view Keyboard Shortcuts</strong></summary>
+  <summary><strong>⌨️ [ CLICK TO REVEAL ] Essential Keyboard Shortcuts</strong></summary>
 
 | Function | Windows/Linux | macOS |
 | :--- | :--- | :--- |
@@ -175,7 +213,7 @@ For a minimal experience, many UI elements are hidden to reduce distractions. Ke
 
 ## ⓘ EXTENSION LINK (VS CODE MARKETPLACE)
 
-╰┈➤ [Minimal Blue Theme](https://marketplace.visualstudio.com/items?itemName=AzamAli.minimal-blue)
+╰┈➤ [<img src="logo.png" width="22" style="vertical-align: middle;"> Minimal Blue Theme](https://marketplace.visualstudio.com/items?itemName=AzamAli.minimal-blue)
 
 ## 🔗 DOWNLOAD (.VSIX)
 
