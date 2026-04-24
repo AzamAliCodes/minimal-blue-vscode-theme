@@ -1,4 +1,4 @@
-# MINIMAL BLUE <img src="logo.png" width="40" style="vertical-align: middle;"> (THEME + UI)
+# MINIMAL BLUE <img src="logo.png" height="32" style="vertical-align: middle;"> (THEME + UI)
 
 Minimal Blue is a dark, minimalist theme for Visual Studio Code, designed to provide a **minimal, distraction-free UI** 🔧 as its core USP, with a sleek aesthetic. This theme removes unnecessary UI elements, applies curated settings for a **minimal UI** 🔧, and features a clean line highlight to keep you focused on your code. It also includes a custom welcome page for a personalized touch. ✨
 
@@ -213,7 +213,7 @@ If you wish to change any setting applied by the extension (e.g., moving the Sid
 
 ## ⓘ EXTENSION LINK (VS CODE MARKETPLACE)
 
-╰┈➤ [<img src="logo.png" width="22" style="vertical-align: middle;"> Minimal Blue Theme](https://marketplace.visualstudio.com/items?itemName=AzamAli.minimal-blue)
+╰┈➤ [<img src="logo.png" height="18" style="vertical-align: middle;"> Minimal Blue Theme](https://marketplace.visualstudio.com/items?itemName=AzamAli.minimal-blue)
 
 ## 🔗 DOWNLOAD (.VSIX)
 
