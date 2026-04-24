@@ -3,7 +3,7 @@
   "publisher": "AzamAli",
   "displayName": "Minimal Blue",
   "description": "Minimal Blue is a dark, distraction-free theme for VS Code, designed for a sleek and minimal UI experience. It removes unnecessary UI elements, applies curated settings, and features a clean line highlight for better focus. Enjoy a blue, neon-inspired aesthetic with a custom welcome page for a clean, minimal coding experience.",
-  "version": "1.0.22",
+  "version": "2.0.0",
   "icon": "logo.png",
   "repository": {
     "type": "git",
@@ -44,37 +44,42 @@
     "neon ui",
     "simple theme",
     "clean theme",
-    "modern theme"
+    "modern theme",
+    "super dark",
+    "super dark theme",
+    "pitch black",
+    "black theme",
+    "oled",
+    "oled theme",
+    "ultra dark"
   ],
   "license": "MIT",
   "contributes": {
     "themes": [
+      {
+        "label": "Minimal Blue (Super Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Minimal Blue Super Dark-color-theme.json"
+      },
       {
         "label": "Minimal Blue",
         "uiTheme": "vs-dark",
         "path": "./themes/Minimal Blue-color-theme.json"
       }
     ],
-    "viewsWelcome": [
-      {
-        "view": "explorer",
-        "contents": "Welcome to Minimal Blue\n[Explore the Cosmic Welcome Page](command:minimalBlue.showWelcome)"
-      }
-    ],
     "commands": [
       {
         "command": "minimalBlue.showWelcome",
         "title": "Minimal Blue: Show Welcome Page"
+      },
+      {
+        "command": "minimalBlue.applySettings",
+        "title": "Minimal Blue: Force Apply Settings"
       }
     ]
   },
   "activationEvents": [
-    "onStartupFinished",
-    "onCommand:minimalBlue.showWelcome",
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:html",
-    "workspaceContains:**/*"
+    "*"
   ],
   "main": "./extension.js",
   "scripts": {

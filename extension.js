@@ -2,17 +2,20 @@ const vscode = require("vscode");
 const fs = require("fs");
 const path = require("path");
 
+let welcomePanel = null;
+let wasClosedByUser = false;
+
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+async function activate(context) {
   console.log("Minimal Blue extension is now active!");
 
   // Apply recommended settings, overwriting any existing user settings
   const config = vscode.workspace.getConfiguration();
   const recommendedSettings = {
     // Theme and Appearance
-    "workbench.colorTheme": "Minimal Blue", // Sets the default theme to Minimal Blue
+    "workbench.colorTheme": "Minimal Blue (Super Dark)", // Sets the default theme to Minimal Blue (Super Dark)
     "workbench.iconTheme": "material-icon-theme", // Uses Material Icon Theme for icons
     "material-icon-theme.activeTheme": "material", // Configures Material Icon Theme to use the "material" variant
 
@@ -87,221 +90,89 @@ function activate(context) {
     "editor.fontLigatures": false, // Disables font ligatures for better readability
   };
 
-  // Apply the recommended settings, overwriting any existing user settings
-  for (const [key, value] of Object.entries(recommendedSettings)) {
-    config.update(key, value, vscode.ConfigurationTarget.Global);
-    console.log(`Force-applied setting: ${key} = ${JSON.stringify(value)}`);
+  /**
+   * Applies the recommended settings to the global configuration.
+   */
+  async function applySettings(forceTheme = false) {
+    for (const [key, value] of Object.entries(recommendedSettings)) {
+      if (key === "workbench.colorTheme" && !forceTheme) continue;
+      try {
+        await config.update(key, value, vscode.ConfigurationTarget.Global);
+      } catch (err) {
+        console.error(`Failed to apply setting ${key}:`, err);
+      }
+    }
   }
-
-  // Variable to hold the webview panel
-  let welcomePanel = null;
-  let wasClosedByUser = false;
 
   // Check if this is the first run of the extension
-  const HAS_RUN_KEY = "minimalBlue.hasRunBefore";
-  let hasRunBefore = context.globalState.get(HAS_RUN_KEY, false);
+  const HAS_RUN_KEY = "minimalBlue.firstRunV2";
+  const hasRunBefore = context.globalState.get(HAS_RUN_KEY, false);
 
-  // If this is the first run, set the flag to true for subsequent runs
+  // If this is the FIRST run, force apply EVERYTHING immediately
   if (!hasRunBefore) {
-    context.globalState.update(HAS_RUN_KEY, true);
-    console.log("First run of Minimal Blue, skipping welcome page.");
-  }
-
-  // Function to create or show the welcome page
-  const showWelcomePage = (preserveFocus = true) => {
-    console.log("Attempting to show Minimal Blue Welcome page...");
-
-    // If the panel already exists, reveal it without taking focus (unless explicitly requested)
-    if (welcomePanel) {
-      console.log("Welcome panel already exists, revealing it.");
-      welcomePanel.reveal(vscode.ViewColumn.One, preserveFocus);
-      return;
-    }
-
-    // Create a new webview panel
-    console.log("Creating new webview panel for Minimal Blue Welcome.");
-    welcomePanel = vscode.window.createWebviewPanel(
-      "minimalBlueWelcome",
-      "Minimal Blue Welcome",
-      { viewColumn: vscode.ViewColumn.One, preserveFocus: preserveFocus },
-      {
-        enableScripts: true,
-        retainContextWhenHidden: true,
-      }
-    );
-
-    // Load the SVG file from the extension directory
-    const svgPath = path.join(context.extensionPath, "vshome.svg");
-    let svgContent;
-    try {
-      svgContent = fs.readFileSync(svgPath, "utf8");
-      console.log("Successfully loaded SVG content from vshome.svg");
-    } catch (error) {
-      console.error("Failed to load SVG content:", error);
-      svgContent = `
-        <svg width="100%" height="100%" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100%" height="100%" fill="#051726"/>
-          <text x="50%" y="50%" font-size="40" text-anchor="middle" fill="#87CEEB">Error: Could not load welcome SVG</text>
-        </svg>
-      `;
-    }
-
-    // Set the webview content with the SVG
-    welcomePanel.webview.html = getWebviewContent(svgContent);
-
-    // Handle when the panel is closed by the user
-    welcomePanel.onDidDispose(
-      () => {
-        console.log("Welcome panel closed by user.");
-        welcomePanel = null;
-        wasClosedByUser = true;
-      },
-      null,
-      context.subscriptions
-    );
-  };
-
-  // Register the command to show the custom welcome page
-  let disposableCommand = vscode.commands.registerCommand(
-    "minimalBlue.showWelcome",
-    () => {
-      console.log("Minimal Blue: Show Welcome Page command triggered.");
-      wasClosedByUser = false;
-      showWelcomePage(false);
-    }
-  );
-
-  context.subscriptions.push(disposableCommand);
-
-  // Monitor editor changes to track when other editors are opened
-  vscode.window.onDidChangeVisibleTextEditors(
-    async (editors) => {
-      console.log(`Visible editors changed: ${editors.length} editors open.`);
-
-      // Check if any non-welcome editors are open
-      const hasNonWelcomeEditors = editors.some(
-        (editor) => editor.document.uri.scheme !== "webview"
-      );
-
-      if (hasNonWelcomeEditors) {
-        console.log(
-          "Non-welcome editors detected, closing welcome page if open."
-        );
-        // Close the welcome page if a file is opened
-        if (welcomePanel) {
-          welcomePanel.dispose();
-          welcomePanel = null;
-        }
-      }
-
-      // If no editors are open (excluding the welcome panel), show the welcome page
-      if (
-        editors.length === 0 &&
-        config.get("workbench.colorTheme") === "Minimal Blue" &&
-        !wasClosedByUser &&
-        hasRunBefore
-      ) {
-        console.log(
-          "No editors open and theme is Minimal Blue, showing welcome page."
-        );
-        showWelcomePage(true);
-      }
-    },
-    null,
-    context.subscriptions
-  );
-
-  // Show the welcome page on startup if the theme is Minimal Blue and no editors are open, but only on subsequent runs
-  if (config.get("workbench.colorTheme") === "Minimal Blue" && hasRunBefore) {
-    console.log(
-      "Theme is Minimal Blue, checking for open editors after session restoration."
-    );
+    await applySettings(true);
+    await context.globalState.update(HAS_RUN_KEY, true);
+    // Use a small delay to ensure VS Code's UI is ready before showing the welcome page
     setTimeout(() => {
-      // Check if there are any visible editors after session restoration
-      if (vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
-        console.log(
-          "No editors open after session restoration, showing welcome page."
-        );
-        showWelcomePage(true);
-      } else {
-        console.log(
-          "Editors are open after session restoration, skipping welcome page."
-        );
-      }
-    }, 500); // Increased delay to ensure session restoration completes
+      vscode.commands.executeCommand("minimalBlue.showWelcome");
+    }, 1000);
   }
 
-  // Monitor theme changes to show/hide the welcome page
+  // Register the manual command
   context.subscriptions.push(
-    vscode.workspace.onDidChangeConfiguration((event) => {
+    vscode.commands.registerCommand("minimalBlue.showWelcome", () => showWelcomePage(context, false)),
+    vscode.commands.registerCommand("minimalBlue.applySettings", () => applySettings(true))
+  );
+
+  // Monitor theme changes: if user switches back to Minimal Blue variants, re-sync settings
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration(async (event) => {
       if (event.affectsConfiguration("workbench.colorTheme")) {
-        const currentTheme = config.get("workbench.colorTheme");
-        console.log(`Theme changed to: ${currentTheme}`);
-        if (currentTheme !== "Minimal Blue" && welcomePanel) {
-          console.log(
-            "Theme changed to non-Minimal Blue, closing welcome page."
-          );
-          welcomePanel.dispose();
-          welcomePanel = null;
-        } else if (
-          currentTheme === "Minimal Blue" &&
-          vscode.window.visibleTextEditors.length === 0 &&
-          !wasClosedByUser &&
-          hasRunBefore
-        ) {
-          console.log("Theme changed to Minimal Blue, showing welcome page.");
-          showWelcomePage(true);
+        const theme = vscode.workspace.getConfiguration().get("workbench.colorTheme");
+        if (theme && (theme === "Minimal Blue" || theme === "Minimal Blue (Super Dark)")) {
+          // User explicitly selected the theme, so we can suggest/apply settings
+          await applySettings(false);
         }
       }
     })
   );
+
+  // Startup check: if theme is active and no editors are open, show welcome page
+  setTimeout(() => {
+    const theme = vscode.workspace.getConfiguration().get("workbench.colorTheme");
+    if (theme && (theme === "Minimal Blue" || theme === "Minimal Blue (Super Dark)") && vscode.window.visibleTextEditors.length === 0 && !wasClosedByUser) {
+      showWelcomePage(context, true);
+    }
+  }, 1500);
 }
 
-function getWebviewContent(svgContent) {
-  return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Minimal Blue Welcome</title>
-      <style>
-        html, body {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100vh;
-          overflow: hidden;
-          background-color: var(--vscode-editor-background, #051726);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        svg {
-          width: 100%;
-          height: 100%;
-          fill: var(--vscode-foreground, #87CEEB);
-          object-fit: contain;
-        }
-      </style>
-    </head>
-    <body>
-      ${svgContent}
-    </body>
-    </html>
-  `;
+function showWelcomePage(context, preserveFocus = true) {
+  if (welcomePanel) {
+    welcomePanel.reveal(vscode.ViewColumn.One, preserveFocus);
+    return;
+  }
+
+  welcomePanel = vscode.window.createWebviewPanel(
+    "minimalBlueWelcome",
+    "Minimal Blue Welcome",
+    { viewColumn: vscode.ViewColumn.One, preserveFocus: preserveFocus },
+    { enableScripts: true, retainContextWhenHidden: true }
+  );
+
+  const svgPath = path.join(context.extensionPath, "vshome.svg");
+  const svgContent = fs.existsSync(svgPath) ? fs.readFileSync(svgPath, "utf8") : "";
+
+  welcomePanel.webview.html = `<html><body style="background:var(--vscode-editor-background, #051726);display:flex;justify-content:center;align-items:center;height:100vh;margin:0;overflow:hidden;">${svgContent}</body></html>`;
+  welcomePanel.onDidDispose(() => {
+    welcomePanel = null;
+    wasClosedByUser = true;
+  });
 }
 
 function deactivate() {
-  console.log("Minimal Blue extension is now deactivated.");
-  // Clean up the welcome panel if it exists
   if (welcomePanel) {
     welcomePanel.dispose();
-    welcomePanel = null;
   }
 }
 
-module.exports = {
-  activate,
-  deactivate,
-};
+module.exports = { activate, deactivate };
